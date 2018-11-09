@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour
     public HeatMap heatMap;
     private RaycastHit looking_at_circle;
     private RaycastHit looking_at_circle_before;
+    private RaycastHit[] lookings;
     private float target_timer;
     private float heat_timer;
     private bool calib_end = false;
@@ -43,6 +44,9 @@ public class GameController : MonoBehaviour
     private PupilDataGetter pupilDataGetter;
     private LoggerBehavior logger;
     private Vector3 norm_pos;
+    private Vector3 differenceNorm;
+    private Vector3 diff;
+    private Transform wall_with_grid;
     #endregion
 
     void Start()
@@ -80,6 +84,8 @@ public class GameController : MonoBehaviour
 
         left_conf_text = GameObject.Find("LeftConf").GetComponent<TextMesh>();
         right_conf_text = GameObject.Find("RightConf").GetComponent<TextMesh>();
+        wall_with_grid = GameObject.Find("Wall_with_grid").GetComponent<Transform>();
+        differenceNorm = wall_with_grid.position;
 
     }
 
@@ -103,8 +109,8 @@ public class GameController : MonoBehaviour
                 StartShrinkMode();
             else print("No mode is selected. Please verify you have selected a mode");
         }
-        left_conf_text.text = pupilDataGetter.left_confidence.ToString("F4");
-        right_conf_text.text = pupilDataGetter.right_confidence.ToString("F4");
+        //left_conf_text.text = pupilDataGetter.left_confidence.ToString("F4");
+        //right_conf_text.text = pupilDataGetter.right_confidence.ToString("F4");
     }
 
     private void StartApproxMode()
@@ -230,10 +236,24 @@ public class GameController : MonoBehaviour
             target_timer += Time.deltaTime;
             // Get the current object looked at by the user
             looking_at_circle = gridController.GetCurrentCollider();
+            lookings = gridController.GetCurrentColliders();
+            //Texture2D workingTexture = GameObject.Find("HeatRenderer").GetComponent<Renderer>().material.mainTexture as Texture2D;
+            //print(workingTexture);
+            for(int i = 0; i < lookings.Length; i++){
+                RaycastHit hit = lookings[i];
+                if(hit.collider.name == "Wall_with_grid"){
+                    //heatMap.addHit(hit,workingTexture);
+                }
+            }
+
             // If the user is looking the target, reduce its scale 
             if (looking_at_circle.collider)
             {
-                Vector3 posCircleHeatMap = new Vector3(looking_at_circle.transform.position.x,looking_at_circle.transform.position.y,looking_at_circle.transform.position.z-0.5f);
+                //print(looking_at_circle.point);
+                diff = wall_with_grid.position;
+                Vector3 diffDiff = differenceNorm - diff;
+                Vector3 posCircleHeatMap = new Vector3(looking_at_circle.point.x + diffDiff.x,looking_at_circle.point.y + diffDiff.y, 5.6f);
+                print("diffDiff: " + diffDiff.ToString("F4") + " posBase:" + differenceNorm.ToString("F4") + " posNow:" + diff.ToString("F4") + " point:" + looking_at_circle.point.ToString("F4"));
                 //Vector3 posCircleHeatMap = looking_at_circle.transform.position;
                 if(heat_timer > 0.2f){
                     heatMap.addCircle(posCircleHeatMap);

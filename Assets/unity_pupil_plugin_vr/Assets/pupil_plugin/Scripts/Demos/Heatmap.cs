@@ -189,6 +189,7 @@ public class Heatmap : MonoBehaviour
 	ParticleSystem.EmitParams particleSystemParameters = new ParticleSystem.EmitParams ();
 	void Add(Vector3 point)
 	{
+		print("add point");
 		particleSystemParameters.position = point;
 		currentVisualization.Emit (particleSystemParameters, 1);
 		if (currentVisualization.particleCount == currentVisualization.main.maxParticles)
@@ -231,6 +232,19 @@ public class Heatmap : MonoBehaviour
 			Vector2 gazePosition = PupilData._2D.GazePosition;
 
 			RaycastHit hit;
+			// RaycastHit[] hits;
+			// hits = Physics.RaycastAll(cam.ViewportPointToRay (gazePosition));
+
+			// for(int i = 0; i < hits.Length; i++){
+			// 	RaycastHit hitt = hits[i];
+			// 	if(hitt.collider.gameObject == gameObject){
+			// 		if(mode == HeatmapMode.ParticleDebug)
+			// 			Add(hitt.point);
+			// 		else
+			// 			Add(RenderingMeshFilter.transform.localToWorldMatrix.MultiplyPoint3x4 (PositionForUV (Vector2.one - hitt.textureCoord) - Vector3.forward * 0.001f));
+			// 	}
+			// }
+
 //			if (Input.GetMouseButton(0) && Physics.Raycast(cam.ScreenPointToRay (Input.mousePosition), out hit, 1f, (int) collisionLayer))
 			if (Physics.Raycast(cam.ViewportPointToRay (gazePosition), out hit, 1f, (int)collisionLayer))
 			{
@@ -243,6 +257,19 @@ public class Heatmap : MonoBehaviour
 					Add (RenderingMeshFilter.transform.localToWorldMatrix.MultiplyPoint3x4 (PositionForUV (Vector2.one - hit.textureCoord) - Vector3.forward * 0.001f));
 			}
 		}
+
+		RaycastHit hitest;
+		Vector3 standarViewCam = new Vector3(0.5f, 0.5f, 10); 
+		if (Physics.Raycast(cam.ViewportPointToRay (standarViewCam), out hitest, 1f, (int)collisionLayer))
+			{
+				if ( hitest.collider.gameObject != gameObject )
+					return;
+
+				if (mode == HeatmapMode.ParticleDebug)
+					Add (hitest.point);
+				else
+					Add (RenderingMeshFilter.transform.localToWorldMatrix.MultiplyPoint3x4 (PositionForUV (Vector2.one - hitest.textureCoord) - Vector3.forward * 0.001f));
+			}
 
 		if ( renderingMaterial != null)
 			cam.RenderToCubemap (Cubemap);

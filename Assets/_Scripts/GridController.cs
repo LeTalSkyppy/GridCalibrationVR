@@ -15,7 +15,7 @@ public class GridController : MonoBehaviour
     private Vector2 gazePointCenter;
     public Material shaderMaterial;
     private RaycastHit hit;
-
+    private RaycastHit[] hits;
     void Start()
     {
         PupilData.calculateMovingAverage = false;
@@ -50,6 +50,8 @@ public class GridController : MonoBehaviour
             heading.SetPosition(0, sceneCamera.transform.position - sceneCamera.transform.up);
 
             Ray ray = sceneCamera.ViewportPointToRay(viewportPoint);
+            
+            hits = Physics.RaycastAll(ray);
             if (Physics.Raycast(ray, out hit))
             {
                 heading.SetPosition(1, hit.point);
@@ -65,5 +67,9 @@ public class GridController : MonoBehaviour
     public RaycastHit GetCurrentCollider()
     {
         return hit;
+    }
+
+    public RaycastHit[] GetCurrentColliders(){
+        return hits;
     }
 }
