@@ -255,10 +255,10 @@ public class GameController : MonoBehaviour
                 Vector3 posCircleHeatMap = new Vector3(looking_at_circle.point.x + diffDiff.x,looking_at_circle.point.y + diffDiff.y, 5.6f);
                 print("diffDiff: " + diffDiff.ToString("F4") + " posBase:" + differenceNorm.ToString("F4") + " posNow:" + diff.ToString("F4") + " point:" + looking_at_circle.point.ToString("F4"));
                 //Vector3 posCircleHeatMap = looking_at_circle.transform.position;
-                if(heat_timer > 0.2f){
+                //if(heat_timer > 0.2f){
                     heatMap.addCircle(posCircleHeatMap);
                     heat_timer = 0;
-                }
+                //}
                 heat_timer += Time.deltaTime;
                 if (looking_at_circle.collider.name == "Cylinder")
                 {
