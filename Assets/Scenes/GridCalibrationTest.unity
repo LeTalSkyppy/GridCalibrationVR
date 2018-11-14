@@ -276,6 +276,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!4 &130802483 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4932101766227142, guid: 20acf7dd93e0bfd4899bb7146097c4d7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1302711683}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1567,23 +1572,23 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1915425643}
     m_Modifications:
     - target: {fileID: 4932101766227142, guid: 20acf7dd93e0bfd4899bb7146097c4d7, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4932101766227142, guid: 20acf7dd93e0bfd4899bb7146097c4d7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.4650655
       objectReference: {fileID: 0}
     - target: {fileID: 4932101766227142, guid: 20acf7dd93e0bfd4899bb7146097c4d7, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.9296514
       objectReference: {fileID: 0}
     - target: {fileID: 4932101766227142, guid: 20acf7dd93e0bfd4899bb7146097c4d7, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.081987165
       objectReference: {fileID: 0}
     - target: {fileID: 4932101766227142, guid: 20acf7dd93e0bfd4899bb7146097c4d7, type: 2}
       propertyPath: m_LocalRotation.y
@@ -1595,7 +1600,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4932101766227142, guid: 20acf7dd93e0bfd4899bb7146097c4d7, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99663347
       objectReference: {fileID: 0}
     - target: {fileID: 4932101766227142, guid: 20acf7dd93e0bfd4899bb7146097c4d7, type: 2}
       propertyPath: m_RootOrder
@@ -2446,6 +2451,7 @@ Transform:
   - {fileID: 764017621}
   - {fileID: 452863524}
   - {fileID: 170076735}
+  - {fileID: 130802483}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -9.406, y: 0, z: 0}

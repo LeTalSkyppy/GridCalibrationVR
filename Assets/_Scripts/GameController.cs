@@ -241,25 +241,26 @@ public class GameController : MonoBehaviour
             //print(workingTexture);
             for(int i = 0; i < lookings.Length; i++){
                 RaycastHit hit = lookings[i];
-                if(hit.collider.name == "Wall_with_grid"){
-                    //heatMap.addHit(hit,workingTexture);
+                if(hit.collider.name == "Cylinder"){
+                    looking_at_circle = hit;
                 }
             }
 
             // If the user is looking the target, reduce its scale 
             if (looking_at_circle.collider)
             {
-                //print(looking_at_circle.point);
-                diff = wall_with_grid.position;
+               /* diff = wall_with_grid.position;
                 Vector3 diffDiff = differenceNorm - diff;
                 Vector3 posCircleHeatMap = new Vector3(looking_at_circle.point.x + diffDiff.x,looking_at_circle.point.y + diffDiff.y, 5.6f);
                 print("diffDiff: " + diffDiff.ToString("F4") + " posBase:" + differenceNorm.ToString("F4") + " posNow:" + diff.ToString("F4") + " point:" + looking_at_circle.point.ToString("F4"));
-                //Vector3 posCircleHeatMap = looking_at_circle.transform.position;
-                //if(heat_timer > 0.2f){
+                Vector3 posCircleHeatMap = looking_at_circle.transform.position;
+                if(heat_timer > 0.2f){
                     heatMap.addCircle(posCircleHeatMap);
                     heat_timer = 0;
-                //}
+                }
+
                 heat_timer += Time.deltaTime;
+                */
                 if (looking_at_circle.collider.name == "Cylinder")
                 {
                     LogData();

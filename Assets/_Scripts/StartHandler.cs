@@ -10,6 +10,7 @@ public class StartHandler : MonoBehaviour
     public GridController gridController;
     public GameController gameController;
     private RaycastHit obj;
+    private RaycastHit[] objs;
     public GameObject Menu;
     public GameObject startButton;
     public GameObject approxButton;
@@ -31,6 +32,25 @@ public class StartHandler : MonoBehaviour
     void Update()
     {
         obj = gridController.GetCurrentCollider();
+        objs = gridController.GetCurrentColliders();
+        
+        for(int i = 0; i < objs.Length; i++){
+            RaycastHit but = objs[i];
+            if (ReferenceEquals(but.collider.gameObject, startButton))
+            {
+                obj = but;
+            }
+            else if (ReferenceEquals(but.collider.gameObject, approxButton))
+            {
+               obj = but;
+            }
+            else if (ReferenceEquals(but.collider.gameObject, shrinkButton))
+            {
+               obj = but;
+            }else{
+
+            }
+        }
         if (obj.collider && timer > 0)
         {
             if (ReferenceEquals(obj.collider.gameObject, startButton))

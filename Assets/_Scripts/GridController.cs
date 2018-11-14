@@ -54,9 +54,9 @@ public class GridController : MonoBehaviour
             hits = Physics.RaycastAll(ray);
             if (Physics.Raycast(ray, out hit))
             {
-                heading.SetPosition(1, hit.point);
+                heading.SetPosition(1, hits[hits.Length-1].point);
 
-                positionText.text = sceneCamera.transform.InverseTransformDirection(hit.point).ToString();
+                positionText.text = sceneCamera.transform.InverseTransformDirection(hits[hits.Length-1].point).ToString();
             }
             else
             {
