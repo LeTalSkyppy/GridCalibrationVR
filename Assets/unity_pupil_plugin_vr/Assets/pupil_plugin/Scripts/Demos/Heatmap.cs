@@ -39,7 +39,7 @@ public class Heatmap : MonoBehaviour
 
 		cam = GetComponentInParent<Camera> ();
 
-		transform.localPosition = Vector3.zero;
+		//transform.localPosition = Vector3.zero;
 
 		collisionLayer = (1 << LayerMask.NameToLayer ("HeatmapMesh"));
 
@@ -224,7 +224,7 @@ public class Heatmap : MonoBehaviour
 
 	void Update () 
 	{
-		transform.eulerAngles = Vector3.zero;
+		//transform.eulerAngles = Vector3.zero;
 
 		if (PupilTools.IsConnected && PupilTools.IsGazing)
 		{
