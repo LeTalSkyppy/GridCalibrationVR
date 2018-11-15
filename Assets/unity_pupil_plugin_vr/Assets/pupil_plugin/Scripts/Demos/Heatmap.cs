@@ -238,7 +238,7 @@ public class Heatmap : MonoBehaviour
 					return;
 
 				if (mode == HeatmapMode.ParticleDebug)
-					Add (hit.textureCoord-sphereMeshCenterOffset);
+					Add (hit.transform.InverseTransformPoint(hit.point));
 				else
 					Add (RenderingMeshFilter.transform.localToWorldMatrix.MultiplyPoint3x4 (PositionForUV (Vector2.one - hit.textureCoord) - Vector3.forward * 0.001f));
 			}
