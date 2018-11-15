@@ -137,7 +137,7 @@ public class Heatmap : MonoBehaviour
 
 	int sphereMeshHeight = 32;
 	int sphereMeshWidth = 32;
-	Vector2 sphereMeshCenterOffset = Vector2.one * 0.5f;
+	Vector2 sphereMeshCenterOffset = Vector2.one * 5f;
 	Mesh GeneratePlaneWithSphereNormals()
 	{
 		Mesh result = new Mesh ();
@@ -232,13 +232,13 @@ public class Heatmap : MonoBehaviour
 
 			RaycastHit hit;
 //			if (Input.GetMouseButton(0) && Physics.Raycast(cam.ScreenPointToRay (Input.mousePosition), out hit, 1f, (int) collisionLayer))
-			if (Physics.Raycast(cam.ViewportPointToRay (gazePosition), out hit, 1f, (int)collisionLayer))
+			if (Physics.Raycast(cam.ViewportPointToRay (gazePosition), out hit, 10f, (int)collisionLayer))
 			{
 				if ( hit.collider.gameObject != gameObject )
 					return;
 
 				if (mode == HeatmapMode.ParticleDebug)
-					Add (hit.point);
+					Add (hit.textureCoord-sphereMeshCenterOffset);
 				else
 					Add (RenderingMeshFilter.transform.localToWorldMatrix.MultiplyPoint3x4 (PositionForUV (Vector2.one - hit.textureCoord) - Vector3.forward * 0.001f));
 			}
