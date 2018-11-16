@@ -249,11 +249,12 @@ public class GameController : MonoBehaviour
             // If the user is looking the target, reduce its scale 
             if (looking_at_circle.collider)
             {
-               /* diff = wall_with_grid.position;
+                /* diff = wall_with_grid.position;
                 Vector3 diffDiff = differenceNorm - diff;
-                Vector3 posCircleHeatMap = new Vector3(looking_at_circle.point.x + diffDiff.x,looking_at_circle.point.y + diffDiff.y, 5.6f);
-                print("diffDiff: " + diffDiff.ToString("F4") + " posBase:" + differenceNorm.ToString("F4") + " posNow:" + diff.ToString("F4") + " point:" + looking_at_circle.point.ToString("F4"));
-                Vector3 posCircleHeatMap = looking_at_circle.transform.position;
+                //transform.InverseTransformPoint(looking_at_circle.point);
+                //Vector3 posCircleHeatMap = new Vector3(looking_at_circle.point.x,looking_at_circle.point.y, 5.5f);
+                //print("diffDiff: " + diffDiff.ToString("F4") + " posBase:" + differenceNorm.ToString("F4") + " posNow:" + diff.ToString("F4") + " point:" + looking_at_circle.point.ToString("F4"));
+                //Vector3 posCircleHeatMap = looking_at_circle.transform.position;
                 if(heat_timer > 0.2f){
                     heatMap.addCircle(posCircleHeatMap);
                     heat_timer = 0;

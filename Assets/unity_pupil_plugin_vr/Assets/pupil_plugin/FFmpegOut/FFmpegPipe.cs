@@ -28,8 +28,8 @@ namespace FFmpegOut
         {
 			PupilGazeTracker pupilTracker = PupilGazeTracker.Instance;
 
-			string path = PupilSettings.Instance.recorder.GetRecordingPath ();
-
+			//string path = PupilSettings.Instance.recorder.GetRecordingPath ();
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Aalborg\\Projet\\GridCalibrationVR";
 			Thread.Sleep (200);//Waiting for Pupil Service to create the incremented folder
 
 			path += "/" + GetLastIncrement (path);
