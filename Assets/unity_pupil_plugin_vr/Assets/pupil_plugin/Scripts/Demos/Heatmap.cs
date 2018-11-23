@@ -29,6 +29,7 @@ public class Heatmap : MonoBehaviour
 	public Camera RenderingCamera;
 	public Camera MaskingCamera;
 	// Use this for initialization
+	private bool activate = true;
 	void OnEnable () 
 	{
 		if (PupilTools.IsConnected)
@@ -247,8 +248,16 @@ public class Heatmap : MonoBehaviour
 		if ( renderingMaterial != null)
 			cam.RenderToCubemap (Cubemap);
 		
-		if (Input.GetKeyUp (KeyCode.H))
-			capturing = !capturing;
+		if (Input.GetKeyUp (KeyCode.H)){
+			activate = !activate;
+			if(activate){
+				gameObject.transform.localPosition -= new Vector3(0,0,2.0f);
+			}else{
+				gameObject.transform.localPosition += new Vector3(0,0,2.0f);
+			}
+		}
+			
+			//capturing = !capturing;
 	}
 
 	void LateUpdate()
