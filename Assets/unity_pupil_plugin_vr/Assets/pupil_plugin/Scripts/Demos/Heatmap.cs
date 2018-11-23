@@ -69,8 +69,9 @@ public class Heatmap : MonoBehaviour
 			break;
 		default:
 			particleSystemParameters.startColor = particleColor;
-			particleSystemParameters.startSize = particleSize * 0.033f;
-			particleSystemParameters.startLifetime = removeParticleAfterXSeconds;
+			particleSystemParameters.startSize = particleSize * 0.05f;
+			particleSystemParameters.startLifetime = float.MaxValue;
+			currentVisualization.gameObject.layer = 0;
 			break;
 		}
 	}
@@ -238,7 +239,7 @@ public class Heatmap : MonoBehaviour
 				if ( hit.collider.gameObject != gameObject )
 					return;
 
-				if (mode == HeatmapMode.ParticleDebug)
+				if (mode == HeatmapMode.ParticleDebug || mode == HeatmapMode.Particle)
 					Add (hit.transform.InverseTransformPoint(hit.point));
 				else
 					Add (RenderingMeshFilter.transform.localToWorldMatrix.MultiplyPoint3x4 (PositionForUV (Vector2.one - hit.textureCoord) - Vector3.forward * 0.001f));

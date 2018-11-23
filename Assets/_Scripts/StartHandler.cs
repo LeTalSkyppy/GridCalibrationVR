@@ -34,23 +34,26 @@ public class StartHandler : MonoBehaviour
         obj = gridController.GetCurrentCollider();
         objs = gridController.GetCurrentColliders();
         
-        for(int i = 0; i < objs.Length; i++){
-            RaycastHit but = objs[i];
-            if (ReferenceEquals(but.collider.gameObject, startButton))
-            {
+        if(objs != null){
+            for(int i = 0; i < objs.Length; i++){
+                RaycastHit but = objs[i];
+                if (ReferenceEquals(but.collider.gameObject, startButton))
+                {
+                    obj = but;
+                }
+                else if (ReferenceEquals(but.collider.gameObject, approxButton))
+                {
                 obj = but;
-            }
-            else if (ReferenceEquals(but.collider.gameObject, approxButton))
-            {
-               obj = but;
-            }
-            else if (ReferenceEquals(but.collider.gameObject, shrinkButton))
-            {
-               obj = but;
-            }else{
+                }
+                else if (ReferenceEquals(but.collider.gameObject, shrinkButton))
+                {
+                obj = but;
+                }else{
 
+                }
             }
         }
+        
         if (obj.collider && timer > 0)
         {
             if (ReferenceEquals(obj.collider.gameObject, startButton))
