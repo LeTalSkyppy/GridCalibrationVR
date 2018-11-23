@@ -1219,13 +1219,13 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: 0
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 1
+  m_TargetDisplay: 0
   m_TargetEye: 0
   m_HDR: 1
   m_AllowMSAA: 1
@@ -1244,8 +1244,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1915425643}
-  m_RootOrder: 5
+  m_Father: {fileID: 1901194900}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 4.175, y: 0, z: 0}
 --- !u!1 &1046591365
 GameObject:
@@ -2245,11 +2245,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1901194899}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.48, z: 3.97}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 977740050}
   m_Father: {fileID: 1915425643}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1901194901
 MonoBehaviour:
@@ -2479,7 +2480,7 @@ Camera:
   field of view: 40
   orthographic: 0
   orthographic size: 5
-  m_Depth: 1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 279
@@ -2510,7 +2511,6 @@ Transform:
   - {fileID: 452863524}
   - {fileID: 170076735}
   - {fileID: 130802483}
-  - {fileID: 977740050}
   - {fileID: 1901194900}
   m_Father: {fileID: 0}
   m_RootOrder: 0
