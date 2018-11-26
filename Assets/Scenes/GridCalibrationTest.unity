@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43335238, g: 0.46998882, b: 0.5058029, a: 1}
+  m_IndirectSpecularColor: {r: 0.433352, g: 0.46998823, b: 0.5058027, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -452,7 +452,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &303174380
 RectTransform:
   m_ObjectHideFlags: 0
@@ -466,9 +466,8 @@ RectTransform:
   m_Children:
   - {fileID: 984369325}
   - {fileID: 727788949}
-  - {fileID: 977740050}
   m_Father: {fileID: 1915425643}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1503,13 +1502,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 977740047}
-  m_LocalRotation: {x: -0.045628186, y: -0, z: -0, w: 0.9989585}
-  m_LocalPosition: {x: -250.3, y: -138.22, z: -1.3199978}
+  m_LocalRotation: {x: 0.0364272, y: -0, z: -0, w: 0.9993363}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 703418485}
-  m_Father: {fileID: 303174380}
-  m_RootOrder: 2
+  m_Father: {fileID: 1915425643}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 4.175, y: 0, z: 0}
 --- !u!1 &984369324
 GameObject:
@@ -1527,7 +1526,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &984369325
 Transform:
   m_ObjectHideFlags: 0
@@ -2594,6 +2593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece50493eecfade49b090f25af7faf62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eyeCamera: {fileID: 977740049}
   shaderMaterial: {fileID: 2100000, guid: f51f5d0c76790c44cb42ff0209bc174e, type: 2}
 --- !u!120 &1915425637
 LineRenderer:
@@ -2784,6 +2784,7 @@ Transform:
   - {fileID: 452863524}
   - {fileID: 170076735}
   - {fileID: 130802483}
+  - {fileID: 977740050}
   - {fileID: 303174380}
   m_Father: {fileID: 0}
   m_RootOrder: 0

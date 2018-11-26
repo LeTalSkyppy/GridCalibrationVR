@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GridController : MonoBehaviour
 {
-
+    public Camera eyeCamera;
     private Camera sceneCamera;
     private TextMesh positionText;
     private LineRenderer heading;
@@ -30,6 +30,7 @@ public class GridController : MonoBehaviour
         {
             PupilTools.IsGazing = true;
             PupilTools.SubscribeTo("gaze");
+            eyeCamera.gameObject.AddComponent<FramePublishing>();
         }
     }
 
