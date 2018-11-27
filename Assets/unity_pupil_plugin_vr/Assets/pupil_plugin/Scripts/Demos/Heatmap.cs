@@ -59,7 +59,7 @@ public class Heatmap : MonoBehaviour
 			particleSystemParameters.startColor = particleColor;
 			particleSystemParameters.startSize = particleSize * 0.05f;
 			particleSystemParameters.startLifetime = removeParticleAfterXSeconds;
-			currentVisualization.gameObject.layer = 0;
+			currentVisualization.gameObject.layer = 10;
 			break;
 		case HeatmapMode.Image:
 			particleSystemParameters.startColor = particleColor;
@@ -71,7 +71,7 @@ public class Heatmap : MonoBehaviour
 			particleSystemParameters.startColor = particleColor;
 			particleSystemParameters.startSize = particleSize * 0.05f;
 			particleSystemParameters.startLifetime = float.MaxValue;
-			currentVisualization.gameObject.layer = 0;
+			currentVisualization.gameObject.layer = 10;
 			break;
 		}
 	}
